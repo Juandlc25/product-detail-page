@@ -25,12 +25,12 @@ const Tabs = () => {
 
   return (
     <div className="flex flex-col w-full justify-center items-center">
-      <div className="flex border-b border-gray-200 w-full items-center justify-center gap-32">
+      <div className="flex border-b border-gray-200 w-full items-center justify-center sm:gap-20 md:gap-32">
         {tabs?.map((tab, index) => (
           <span
             onClick={() => setActive(tab?.title)}
             key={index}
-            className={`border-b text-xl font-medium pb-4 cursor-pointer px-4 ${
+            className={`border-b text-base md:text-xl font-medium pb-4 cursor-pointer px-4 ${
               active === tab?.title ? "border-[#E73C17]" : "border-transparent"
             }`}
           >
@@ -39,7 +39,9 @@ const Tabs = () => {
         ))}
       </div>
       <div className="px-10 mt-2">
-        <p>{tabs?.find((tab) => tab.title === active)?.content}</p>
+        <p className="font-light text-[10px] sm:text-lg">
+          {tabs?.find((tab) => tab.title === active)?.content}
+        </p>
       </div>
     </div>
   );

@@ -6,8 +6,8 @@ interface Props extends SVGProps<SVGSVGElement> {
 
 const Logotype = (props: Props) => (
   <svg
-    width="159"
-    height="34"
+    width={props?.width ?? "159"}
+    height={props?.height ?? "34"}
     viewBox="0 0 159 34"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

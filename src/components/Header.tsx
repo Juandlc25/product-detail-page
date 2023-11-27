@@ -4,6 +4,7 @@ import Headphones from "../assets/Headphones";
 import Heart from "../assets/Heart";
 import Logotype from "../assets/Logotype";
 import Menu from "../assets/Menu";
+import Profile from "../assets/Profile";
 import Search from "../assets/Search";
 
 const Header = () => {
@@ -11,7 +12,26 @@ const Header = () => {
   const items = ["HOME", "ABOUT", "PRODUCT", "PAGES", "CONTACT"];
   return (
     <>
-      <header className="flex items-center w-full justify-between bg-[#2F333A] py-4 pl-8 pr-4 font-inter text-white text-base font-light h-[60px]">
+      <div className="flex md:hidden p-4 w-full items-center justify-between">
+        <div className="bg-[#E73C17] w-10 h-10 p-3 gap-1 flex flex-col items-center justify-center">
+          {[0, 1, 2, 3].map((_, index) => (
+            <div key={index} className="h-[2px] w-full bg-white" />
+          ))}
+        </div>
+        <Logotype height={20} width={120} />
+        <div className="flex items-center gap-2">
+          <Search color="#000" />
+          <Profile color="#000" />
+          <Heart />
+          <div className="relative">
+            <div className="flex items-center text-xs justify-center rounded-full h-4 w-4 bg-[#E23000] absolute text-white -right-2 -top-1">
+              6
+            </div>
+            <Cart />
+          </div>
+        </div>
+      </div>
+      <header className="hidden md:flex items-center w-full justify-between bg-[#2F333A] py-4 pl-8 pr-4 font-inter text-white text-base font-light h-[60px]">
         <span>Welcome to Needus & Get the best product</span>
         <div className="flex gap-4">
           {options?.map((option, index) => (
@@ -22,7 +42,7 @@ const Header = () => {
           ))}
         </div>
       </header>
-      <div className="font-inter flex items-center p-4 justify-between w-full">
+      <div className="font-inter hidden md:flex items-center p-4 justify-between w-full">
         <Logotype />
         <div className="flex items-center gap-4">
           <div className="border border-gray-300 flex h-[76px] px-4">
@@ -56,7 +76,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <header className="flex font-inter items-center w-full justify-between bg-[#2F333A] h-[76px]">
+      <header className="hidden md:flex font-inter items-center w-full justify-between bg-[#2F333A] h-[76px]">
         <div className="bg-[#E73C17] h-full gap-4 flex items-center justify-center text-white px-8">
           <Menu />
           <span className="text-2xl font-medium">All Categories</span>
